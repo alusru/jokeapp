@@ -9,6 +9,7 @@ import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
+import NProgress from 'nprogress'; 
 
 const  App = () => {
   const [joke,setJoke] = useState("");
@@ -36,11 +37,11 @@ const  App = () => {
   });
 
   const API = async () =>{
+    NProgress.start();
     let allJokes = [];
 
     try {
       const jokeData = axios.get("https://v2.jokeapi.dev/joke/Programming?blacklistFlags=religious,racist,explicit");
-      console.log(jokeData);
       allJokes = (await jokeData).data
     } catch (error) {
       console.log(error);
@@ -48,7 +49,7 @@ const  App = () => {
 
 
     try {
-      //console.log(allJokes.type == 'twopart');
+     
         setType(allJokes.type);
         setSetup(allJokes.setup);
         setDelivery(allJokes.delivery);
@@ -63,7 +64,11 @@ const  App = () => {
 
   useEffect(()=>{
     API();
+    
   },[])
+
+ 
+NProgress.done();
 
   const classes = useStyles();
   const bull = <span className={classes.bullet}>•</span>;
@@ -72,7 +77,7 @@ const  App = () => {
     
 
 <Container>
-<Card className={classes.root}>
+<Card className={classes.root} color="secondary">
       <CardContent>
         <Typography className={classes.title} color="textSecondary" gutterBottom>
           Joke of the Day
