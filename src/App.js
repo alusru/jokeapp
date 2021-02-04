@@ -44,7 +44,6 @@ const  App = () => {
     try {
       const jokeData = axios.get("https://v2.jokeapi.dev/joke/Programming?blacklistFlags=religious,racist,explicit");
       allJokes = (await jokeData).data;
-      console.log(allJokes);
     } catch (error) {
       console.log(error);
     }
