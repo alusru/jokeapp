@@ -42,7 +42,7 @@ const  App = () => {
     let allJokes = [];
 
     try {
-      const jokeData = axios.get("https://v2.jokeapi.dev/joke/Any");
+      const jokeData = axios.get("https://v2.jokeapi.dev/joke/Programming?blacklistFlags=religious,racist,explicit");
       allJokes = (await jokeData).data;
       console.log(allJokes);
     } catch (error) {
