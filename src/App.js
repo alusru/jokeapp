@@ -13,10 +13,11 @@ import NProgress from 'nprogress';
 
 const  App = () => {
   const [joke,setJoke] = useState("");
-  const [category, setCategory] = useState("");
+  
   const [setup, setSetup] = useState("");
   const [delivery, setDelivery] = useState("");
   const [type, setType] = useState("");
+
 
 
   const useStyles = makeStyles({
@@ -41,8 +42,9 @@ const  App = () => {
     let allJokes = [];
 
     try {
-      const jokeData = axios.get("https://v2.jokeapi.dev/joke/Programming?blacklistFlags=religious,racist,explicit");
-      allJokes = (await jokeData).data
+      const jokeData = axios.get("https://v2.jokeapi.dev/joke/Any");
+      allJokes = (await jokeData).data;
+      console.log(allJokes);
     } catch (error) {
       console.log(error);
     }
@@ -50,11 +52,12 @@ const  App = () => {
 
     try {
      
+        
         setType(allJokes.type);
         setSetup(allJokes.setup);
         setDelivery(allJokes.delivery);
         setJoke(allJokes.joke);
-        setCategory(allJokes.category);
+       
    
       
     } catch (error) {
@@ -71,7 +74,7 @@ const  App = () => {
 NProgress.done();
 
   const classes = useStyles();
-  const bull = <span className={classes.bullet}>•</span>;
+  
 
   return (
     
