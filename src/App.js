@@ -50,15 +50,10 @@ const  App = () => {
 
 
     try {
-     
-        
         setType(allJokes.type);
         setSetup(allJokes.setup);
         setDelivery(allJokes.delivery);
-        setJoke(allJokes.joke);
-       
-   
-      
+        setJoke(allJokes.joke);   
     } catch (error) {
       console.log(error);
     }
@@ -88,11 +83,11 @@ NProgress.done();
        
        
         {
-      type === 'twopart' ? (<Typography variant="body2" component="p">
-         {setup}
-         <br />
-     {delivery}
-      </Typography>) : (<Typography variant="body2" component="p">{joke}</Typography>)
+          type === 'twopart' ? (<Typography variant="body2" component="p">
+            {setup}
+            <br />
+        {delivery}
+        </Typography>) : (<Typography variant="body2" component="p">{joke}</Typography>)
         
     }
      
