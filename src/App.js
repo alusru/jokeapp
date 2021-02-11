@@ -93,7 +93,7 @@ NProgress.done();
      
       </CardContent>
       <CardActions>
-        <Button size="small" variant="outlined" color="secondary" onClick={API}>Make Me Laugh</Button>
+        <Button size="small" variant="outlined"  color="secondary" onClick={API}>Hit me with a joke</Button>
       </CardActions>
     </Card>
     </Container>
