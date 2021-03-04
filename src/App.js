@@ -10,6 +10,7 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import NProgress from 'nprogress'; 
+import { WhatsappShareButton, WhatsappIcon } from "react-share";
 
 const  App = () => {
   const [joke,setJoke] = useState("");
@@ -95,6 +96,14 @@ NProgress.done();
       <CardActions>
         <Button size="small" variant="outlined"  color="secondary" onClick={API}>Hit me with a joke</Button>
       </CardActions>
+
+      <Typography className={classes.title} color="textSecondary" gutterBottom>Share the joke</Typography>
+      <WhatsappShareButton
+        url="https://dazzling-northcutt-50209b.netlify.app/"
+        quote={joke}
+        title="#programing joke">
+        <WhatsappIcon  size={32} round={true} logoFillColor="white" />
+      </WhatsappShareButton>
     </Card>
     </Container>
 
